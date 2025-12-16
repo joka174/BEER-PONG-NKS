@@ -1,75 +1,43 @@
 <!DOCTYPE html>
-<html lang="hr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beer Pong NKS vol. 7</title>
-    <!-- Load Tailwind CSS for modern styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
+
     <style>
-        /* Set the Inter font as default */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        /* Custom scrollbar for better aesthetics, especially in the preview pane */
-        ::-webkit-scrollbar {
-            width: 8px;
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        /* Updated scrollbar thumb color to green for a more Christmas feel */
-        ::-webkit-scrollbar-thumb {
-            background: #10B981; /* Emerald 500 */
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #d1fae5; /* Light green track */
+        iframe {
+            height: 100vh; /* Full viewport height */
+            width: 150vw;  /* Full viewport width */
+            border: none;
         }
     </style>
 </head>
-<!-- Use Tailwind classes for a visually appealing, responsive container -->
-<body class="min-h-screen flex flex-col items-center justify-start py-8 px-4 sm:px-6 lg:px-8 bg-gray-100">
-
-    <!-- Header Section -->
-    <div class="w-full max-w-7xl mb-8 text-center">
-        <!-- CHRISTMAS STYLE: Red-Green Gradient, White Text, and Festive Shadow -->
-        <h1 class="text-5xl font-extrabold text-white rounded-xl p-4 bg-gradient-to-r from-green-700 to-red-700 shadow-2xl shadow-green-500/50 transition duration-300 transform hover:scale-[1.02] hover:shadow-red-500/50">
-            🍻 Beer Pong NKS vol. 7 Bracket 🏆
-        </h1>
-        <!-- DESCRIPTION TRANSLATED TO CROATIAN -->
-        <p class="mt-4 text-lg font-semibold text-gray-800">
-            Ažuriranja uživo za prvenstvo. Podaci se automatski osvježavaju svakih 30 sekundi.
-        </p>
-    </div>
-
-    <!-- Embedded Bracket Container -->
-    <div class="w-full max-w-7xl bg-white shadow-2xl rounded-xl overflow-hidden border-4 border-red-600/70 p-1 md:p-3">
-        <!-- The iframe is set to 100% width and a minimum height to ensure the bracket is fully visible on various screen sizes. -->
-        <iframe
-            src="https://brackethq.com/b/nzg3c/embed/?name=1"
-            title="Beer Pong Tournament Bracket"
-            class="w-full rounded-lg"
-            style="min-height: 85vh; height: 100%;"
-            frameborder="0">
-        </iframe>
-    </div>
-
-    <!-- Refresh Script -->
+<body>
+    <!-- Embedded Bracket -->
+   <iframe src="https://brackethq.com/b/nzg3c/embed/?name=1" width="100%" height="550" frameborder="0"></iframe>
     <script>
-        // Function to handle the automatic page reload
-        function autoReload() {
-            // Logs a message to the console before setting the timeout
-            console.log("Setting page reload for 30 seconds from now.");
-
-            // Set a timeout to reload the page after 30000 milliseconds (30 seconds)
-            setTimeout(function(){
-                // Force reload from the server to ensure fresh bracket data
-                window.location.reload(true);
-            }, 30000);
-        }
-
-        // Start the auto-reload loop once the window content is fully loaded
-        window.onload = autoReload;
-    </script>
+    // Refresh the page every 30s
+    setTimeout(function(){
+        window.location.reload(1);  // Reload the page
+    }, 30000);  // 30000ms
+</script>
 
 </body>
 </html>
+
+
